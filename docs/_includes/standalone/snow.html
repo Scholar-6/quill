@@ -27,5 +27,10 @@
     placeholder: 'Compose an epic...',
     theme: 'snow',
   });
+
+  quill.clipboard.addMatcher(Node.TEXT_NODE, (node, delta) => {
+    console.log('matcher done!!!!');
+    return delta;
+  });
 </script>
 <!-- script -->
