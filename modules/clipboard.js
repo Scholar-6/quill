@@ -88,6 +88,9 @@ class Clipboard extends Module {
     let htmlToMatch = html;
     if (!htmlToMatch) {
       const p = document.createElement('p');
+      if (!text) {
+        return new Delta().insert('');
+      }
       p.innerText = text;
       htmlToMatch = p.outerHTML;
       // return new Delta().insert(text || '');
@@ -151,7 +154,6 @@ class Clipboard extends Module {
     if (range == null) return;
     const html = e.clipboardData.getData('text/html');
     const text = e.clipboardData.getData('text/plain');
-    console.log(e, html, text);
     const files = Array.from(e.clipboardData.files || []);
     if (!html && files.length > 0) {
       this.quill.uploader.upload(range, files);
@@ -169,7 +171,6 @@ class Clipboard extends Module {
   onPaste(range, { text, html }) {
     const formats = this.quill.getFormat(range.index);
     const pastedDelta = this.convert({ text, html }, formats);
-    console.log(pastedDelta);
     debug.log('onPaste', pastedDelta, { text, html });
     const delta = new Delta()
       .retain(range.index)
