@@ -508,7 +508,7 @@ function matchText(node, delta) {
       return replaced.length < 1 && collapse ? ' ' : replaced;
     };
     text = text.replace(/\r\n/g, ' ').replace(/\n/g, ' ');
-    text = text.replace(/\s\s+/g, replacer.bind(replacer, true)); // collapse whitespace
+    // text = text.replace(/\s\s+/g, replacer.bind(replacer, true)); // collapse whitespace
     if (
       (node.previousSibling == null && isLine(node.parentNode)) ||
       (node.previousSibling != null && isLine(node.previousSibling))
