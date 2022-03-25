@@ -136,6 +136,9 @@ ruby -ropenssl -e "puts OpenSSL::OPENSSL_LIBRARY_VERSION"
 then we need to execute comands one by one.
 all bellow are copypasted from packange.json. its just on windows they aren`t working because of linux command rm. Anyway thanks for authors of quill.
 
+npm install
+bundler install
+
 npm run lint
 webpack --config _develop/webpack.config.js
 
