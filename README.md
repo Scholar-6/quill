@@ -109,3 +109,38 @@ Get help or stay up to date.
 ## License
 
 BSD 3-clause
+
+
+
+
+
+Instruction to install old ruby on Windows is next.
+Saved for myself some of them are from comments on github.
+
+First of all remove dist folder. Removing can be done anytime.
+
+Download ruby 2.1.4
+
+
+Then we need to update openSSL
+
+Thanks for the guy here https://github.com/oneclick/rubyinstaller2/issues/53#issuecomment-311356528. Go give him like saved me alot of time.
+
+those below were copypasted from above comment
+ridk enable
+pacman -S mingw-w64-x86_64-openssl
+gem install openssl
+cp c:/msys64/mingw64/bin/libeay32.dll c:/msys64/mingw64/bin/ssleay32.dll c:/Ruby24-x64/bin/ruby_builtin_dlls/
+ruby -ropenssl -e "puts OpenSSL::OPENSSL_LIBRARY_VERSION"
+
+then we need to execute comands one by one.
+all bellow are copypasted from packange.json. its just on windows they aren`t working because of linux command rm. Anyway thanks for authors of quill.
+
+npm run lint
+webpack --config _develop/webpack.config.js
+
+
+And thats all easy as eating a pie.
+you better remove dist folder before doing it.
+
+dist folder should be generated if everything is ok.
